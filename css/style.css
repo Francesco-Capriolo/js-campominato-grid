@@ -1,0 +1,14 @@
+header,
+footer {
+    background-color: white;
+    height: 10vh;
+}
+
+main {
+    height: 80vh;
+    background-color: darkgray;
+}
+
+.btn {
+    vertical-align: inherit;
+}
