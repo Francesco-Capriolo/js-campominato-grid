@@ -12,3 +12,43 @@ main {
 .btn {
     vertical-align: inherit;
 }
+
+div#grid {
+    width: 700px;
+    height: 700px;
+}
+
+.box:hover {
+    opacity: 0.5;
+}
+
+.box {
+    width: calc(100% / 10);
+    border: 2px solid black;
+    cursor: crosshair;
+    background-color: blanchedalmond;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+div#grid .box-easy {
+    width: calc(100% / 10);
+    height: calc(100% / 10);
+}
+
+div#grid .box-medium {
+    width: calc(100% / 10);
+    height: calc(100% / 8);
+}
+
+div#grid .box-hard {
+    width: calc(100% / 10);
+    height: calc(100% / 5);
+}
+
+
+
+div.box-clicked {
+    background-color: greenyellow;
+}
