@@ -6,7 +6,7 @@ footer {
 
 main {
     height: 80vh;
-    background-color: darkgray;
+    background-color: rgb(53, 117, 245);
 }
 
 .btn {
@@ -14,7 +14,6 @@ main {
 }
 
 div#grid {
-    width: 700px;
     height: 700px;
 }
 
@@ -22,32 +21,16 @@ div#grid {
     opacity: 0.5;
 }
 
+/* box che mi serve per il js */
 .box {
     width: calc(100% / 10);
     border: 2px solid black;
     cursor: crosshair;
-    background-color: blanchedalmond;
+    background-color: rgb(237, 240, 229);
     display: flex;
     align-items: center;
     justify-content: center;
 }
-
-div#grid .box-easy {
-    width: calc(100% / 10);
-    height: calc(100% / 10);
-}
-
-div#grid .box-medium {
-    width: calc(100% / 10);
-    height: calc(100% / 8);
-}
-
-div#grid .box-hard {
-    width: calc(100% / 10);
-    height: calc(100% / 5);
-}
-
-
 
 div.box-clicked {
     background-color: greenyellow;
