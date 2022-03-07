@@ -3,36 +3,39 @@ function createGame() {
     //prima bisogna resettare ogni volta che si crea una nuova griglia
     document.querySelector("#grid").innerHTML = "";
     //recupero il livello selezionato
-    document.getElementById("input-level").value;
+    const level = parseInt(document.getElementById("input-level").value);
     // prima di generare le varie celle devo assegnare una variabile
     // da poter dare le varie gradezze in maniera omogenea
     let cellsNumber = 0;
     let cellsRow = 0;
     //generare i vari tipi di livello con lo switch
-    switch (input - level) {
-        case easy:
+    switch (level) {
+        case 1:
             cellsNumber = 100;
             //^ oppure fare cellsRow=10;
             break;
-        case medium:
+        case 2:
             cellsNumber = 81;
             //^ oppure fare cellsRow=9;
             break;
-        case hard:
+        case 3:
             cellsNumber = 49;
             //^ oppure fare cellsRow=7;
             break;
     }
     //$ sqrt significa la radice quadrata di cellsNumber
     cellsRow = Math.sqrt(cellsNumber);
+    //ciclo per in vari numeri delle celle
+    for (let i = 1; i <= cellsNumber; i++) {
+        const gridSquare = createSquare(i, cellsRow);
+        //aggiungo un figlio lla griglia grande
+        document.querySelector("#grid").appendChild(gridSquare);
+    }
 
-    /*  for(let i=0;i<cellsNumber;i++){
-        createSquare(i);
-     } */
 }
 
-//arrow function che restituisce un div 
-function createSquare(currentGrid, cellsRow) {
+//function che restituisce un div 
+function createSquare(i, cellsRow) {
     //creo un elemento
     const currentGrid = document.createElement("div");
     //aggiungo il css box
@@ -43,14 +46,16 @@ function createSquare(currentGrid, cellsRow) {
     currentGrid.style.height = currentGrid.style.width;
     //inserisco il numero della cella
     currentGrid.innerHTML += [i];
+    //appena premo un quadrato della griglia gli do un colore
+    currentGrid.addEventListener('click', function () {
+        this.classList.add('box-clicked');
+    })
     // restituisce il valore
     return currentGrid;
 }
 
 document.getElementById("button").addEventListener("click", function () {
     createGame()
-
-
 })
 
 

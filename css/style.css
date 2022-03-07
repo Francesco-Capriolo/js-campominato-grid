@@ -23,7 +23,6 @@ main {
 
 /* box che mi serve per il js */
 .box {
-    width: calc(100% / 10);
     border: 2px solid black;
     cursor: crosshair;
     background-color: rgb(237, 240, 229);
@@ -33,9 +32,11 @@ main {
 }
 
 div.box-clicked {
-    background-color: greenyellow;
+    background-image: url("../img/like.jpg");
+    background-size: contain;
 }
 
 div.box-bomber {
     background-image: url("../img/bomb.png");
+    background-size: contain;
 }
