@@ -29,7 +29,7 @@ document.getElementById('button').addEventListener('click', function () {
         }
         //uguale ma meno i
     } else if (grid == "medium") {
-        for (i = 1; i <= 80; i++) {
+        for (i = 1; i <= 81; i++) {
             const gridSquare = createSquare();
             gridSquare.innerHTML += [i];
 
@@ -40,7 +40,7 @@ document.getElementById('button').addEventListener('click', function () {
 
         }
     } else { //uguale ma meno i
-        for (i = 1; i <= 50; i++) {
+        for (i = 1; i <= 49; i++) {
             const gridSquare = createSquare();
             gridSquare.innerHTML += [i];
 

@@ -13,10 +13,10 @@ main {
     vertical-align: inherit;
 }
 
-div#grid {
-    height: 700px;
+/* div#grid {
+    height: 600px; 
 }
-
+ */
 .box:hover {
     opacity: 0.5;
 }
@@ -34,4 +34,8 @@ div#grid {
 
 div.box-clicked {
     background-color: greenyellow;
+}
+
+div.box-bomber {
+    background-image: url("../img/bomb.png");
 }
