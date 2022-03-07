@@ -25,6 +25,11 @@ function createGame() {
     }
     //$ sqrt significa la radice quadrata di cellsNumber
     cellsRow = Math.sqrt(cellsNumber);
+
+    //genera le bombe casuali
+    const bombs = generateBomb(16, cellsNumber);
+    console.warn(bombs);
+
     //ciclo per in vari numeri delle celle
     for (let i = 1; i <= cellsNumber; i++) {
         const gridSquare = createSquare(i, cellsRow);
@@ -48,10 +53,60 @@ function createSquare(i, cellsRow) {
     currentGrid.innerHTML += [i];
     //appena premo un quadrato della griglia gli do un colore
     currentGrid.addEventListener('click', function () {
-        this.classList.add('box-clicked');
+        if (bombs.includes(i)) {
+            this.classList.add("box-bomber");
+
+            writeInElementById('points', `mi dispiace il tuo punteggio è: ${points}`)
+        } else {
+            this.classList.add('box-clicked');
+            points++;
+            writeInElementById("points", ` il tuo punteggio è: ${points}`)
+        }
     })
     // restituisce il valore
     return currentGrid;
+}
+
+/* //funzione per randomicizzare le bombe 
+
+function randomInteger(min, max) {
+    if (isNaN.parseInt(min) || isNaN.parseInt(max)) {
+        console.error("randominte(min,max) ha bisogno di due numeri per argomento");
+    }
+    return (Math.floor(Math.random() * ((max + 1) - min) + max));
+}
+ */
+
+
+//funzione per generare in modo non ripetitivo le bombe
+
+function generateRandomUnique(blacklist, min, max) {
+    //crezione della variabile che controlla il numero valido
+    let check = true;
+    let randomInt;
+    //il ciclo continua finchè trova un numero valido
+    while (check) {
+        //genero un numero
+        randomInt = (Math.floor(Math.random() * ((max + 1) - min) + max));
+        //se il numero è presente nella lista
+        if (blacklist.includes(randomInt)) {
+            //se trovo un numero presente esco dal ciclo while
+            check = false;
+        }
+    }
+    return randomInt;
+}
+
+//funziona che genera le 16 bombe
+function generateBomb(bombs, cellsNumber) {
+    //creo un array per contenere le bombe
+    const bombList = [];
+    //per ogni bomba ne genero una nuova in un'altra cella
+    for (let i = 0; i < bombs; i++) {
+        //aggiungo la funzione che crea le bombe
+        bombList.push(generateRandomUnique(bombList, 1, cellsNumber));
+    }
+    return bombList;
 }
 
 document.getElementById("button").addEventListener("click", function () {
