@@ -6,27 +6,46 @@ function createGame() {
     document.getElementById("input-level").value;
     // prima di generare le varie celle devo assegnare una variabile
     // da poter dare le varie gradezze in maniera omogenea
-    let cellNumber = 0;
+    let cellsNumber = 0;
     let cellsRow = 0;
     //generare i vari tipi di livello con lo switch
     switch (input - level) {
         case easy:
-            cellNumber = 100;
+            cellsNumber = 100;
             //^ oppure fare cellsRow=10;
             break;
         case medium:
-            cellNumber = 81;
+            cellsNumber = 81;
             //^ oppure fare cellsRow=9;
             break;
         case hard:
-            cellNumber = 49;
+            cellsNumber = 49;
             //^ oppure fare cellsRow=7;
             break;
     }
-    //$ sqrt significa la radice quadrata di cellNumber
-    cellsRow = Math.sqrt(cellNumber);
+    //$ sqrt significa la radice quadrata di cellsNumber
+    cellsRow = Math.sqrt(cellsNumber);
+
+    /*  for(let i=0;i<cellsNumber;i++){
+        createSquare(i);
+     } */
 }
 
+//arrow function che restituisce un div 
+function createSquare(currentGrid, cellsRow) {
+    //creo un elemento
+    const currentGrid = document.createElement("div");
+    //aggiungo il css box
+    currentGrid.classList.add("box");
+    //aggiungo lo stile e mi calcolo la width
+    currentGrid.style.width = `calc(100% / ${cellsRow})`;
+    //la height è uguale alla width
+    currentGrid.style.height = currentGrid.style.width;
+    //inserisco il numero della cella
+    currentGrid.innerHTML += [i];
+    // restituisce il valore
+    return currentGrid;
+}
 
 document.getElementById("button").addEventListener("click", function () {
     createGame()
